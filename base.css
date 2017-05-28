@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+* {
+    line-height: 1;
+    font-family: 'Lato', sans-serif;
+    color: inherit;
+}
+
+.banner {
+    width: 100%;
+    text-align: center;
+    background-color: #3b3b3b;
+    color: #fff;    
+    padding: 20px 0;     
+}
+
+.space {
+    padding-top: 5%;
+}
+
+#cover {
+    width: 100%;
+    border: 10px double rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 0;
+    padding: 0 20px;
+}
