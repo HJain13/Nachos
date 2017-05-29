@@ -6,6 +6,10 @@
     color: inherit;
 }
 
+#site-title {
+    font-size: 3.5rem;
+}
+
 .banner {
     width: 100%;
     text-align: center;
@@ -26,4 +30,26 @@
 p {
     margin: 0;
     padding: 0 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px 10px;
+    background-color: white;
+    border: 1px solid purple;    
+    border-radius: 5px;
+    color: black;
+}
+
+button {
+    width: 80%;
+    padding: 10px 0;
+    background-color: purple;
+    border: 1px solid white;
+    border-radius: 5px;
+    font-size: 20px;    
 }

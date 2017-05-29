@@ -3,6 +3,7 @@ function test() {
     var newstr=userInput.replace(/ /g,"+");
     console.log(newstr);
 
+//========= Info related to TV Series ========//
     var tv = new XMLHttpRequest();
     var info, imgsrc;
     tv.open('GET', 'https://api.tvmaze.com/singlesearch/shows?q='+newstr);
@@ -19,10 +20,6 @@ function test() {
         }
     };
     tv.send();
-
-
-
-
     var v = new XMLHttpRequest();
     v.open('GET', 'https://www.googleapis.com/customsearch/v1?q='+newstr+'&cx=007294272904903091646:wpksgp8bkg8&num=10&key=AIzaSyBJS1V16sSnl7dw3J1UlB3A4oaAd_TDyjE');
     var link;
@@ -41,4 +38,6 @@ function test() {
         }
     };
     v.send();
+    var show = document.getElementById("data");
+    show.classList.remove('hidden');
 }
