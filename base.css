@@ -79,3 +79,7 @@ button {
 button:focus, input[type="button"]:focus {
     outline: none;
 }
+
+#demo {
+    clear:both;
+}

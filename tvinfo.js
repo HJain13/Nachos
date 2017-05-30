@@ -4,21 +4,15 @@ function select(a) {
 	if (a==1) {
 		document.getElementById("movie").classList.remove('disabled');
 		document.getElementById("tv").classList.add('disabled');
-		document.getElementById("season").classList.add('hidden');	
-		document.getElementById("search").classList.add('col-6');
-		document.getElementById("search").classList.add('col-12-sm');			
-		document.getElementById("search").classList.remove('col-4');
-		document.getElementById("search").classList.remove('col-9-sm');											
+		document.getElementById("season").classList.add('hidden');			
+		document.getElementById("search").className = "col-6 col-12-sm ";
 		selection = 1;    
 	}
 	else {
 		document.getElementById("tv").classList.remove('disabled');
 		document.getElementById("movie").classList.add('disabled');
 		document.getElementById("season").classList.remove('hidden');	
-		document.getElementById("search").classList.remove('col-6');
-		document.getElementById("search").classList.remove('col-12-sm');			
-		document.getElementById("search").classList.add('col-4');
-		document.getElementById("search").classList.add('col-9-sm');											
+		document.getElementById("search").className = 'col-4 col-9-sm';											
 		selection = 0;
 	}
 }
