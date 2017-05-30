@@ -36,7 +36,7 @@ p {
     display: none;
 }
 
-input[type="text"] {
+input[type="text"], input[type="number"] {
     width: calc(100% - 20px);
     padding: 10px 10px;
     background-color: white;
