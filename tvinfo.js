@@ -64,5 +64,58 @@ function test() {
 		v.send();
 		var show = document.getElementById("data");
 		show.classList.remove('hidden');
+		var date = document.getElementById("release_date");
+		date.classList.add('hidden');
+	}
+	else if(selection==1){
+  var userInput = document.getElementById("userInput").value;
+    var newstr=userInput.replace(/ /g,"+");
+    console.log(newstr);
+
+	var tv = new XMLHttpRequest();
+    var info, imgsrc;
+    tv.open('GET','https://api.themoviedb.org/3/search/movie?api_key=659717d1c9466f3d3b9d838355dba9a4&query='+newstr);
+    tv.onload = function () {
+        if (tv.status === 200) {
+            info = JSON.parse(tv.responseText);
+            console.log(tv.responseText);
+			console.log( info.results[0].title);
+            document.getElementById("name").innerHTML = info.results[0].title;
+            var image="http://movieplayer.tv/wp-content/uploads"+info.results[0].poster_path
+			console.log(image);
+           document.getElementById("cover").setAttribute("src", image);
+            document.getElementById("summary").innerHTML = info.results[0].overview;
+            document.getElementById("rating").innerHTML ="<strong>Rating: </strong>"+info.results[0].vote_average+""+"/10" ;
+            var b=info.results[0].release_date;
+            a=b.substr(0,4);
+			 document.getElementById("release_date").innerHTML="<strong>Release Date: </strong>"+a;
+
+        } else {
+            alert('There was an error. Status: ' + tv.status);
+        }
+    };
+    tv.send();
+	var v = new XMLHttpRequest();
+    v.open('GET', 'https://www.googleapis.com/customsearch/v1?q='+newstr+'&cx=007294272904903091646:aqljjsm_byk&num=10&key=AIzaSyBJS1V16sSnl7dw3J1UlB3A4oaAd_TDyjE');
+    var link;
+    v.onload = function () {
+        if (v.status === 200) {
+            info = JSON.parse(v.responseText);
+            info.items.forEach(function (item) {
+                console.log(item.link);
+                 link += '<a href="'+item.link+'">'+item.link+'</a></br>';
+                 console.log(link);
+            //     '<a href="'+ ''+object.link+'">'+object.link+'</a><br>'
+            });
+            document.getElementById("id").innerHTML = link;
+        } else {
+            alert('There was an error. Status: ' + v.status);
+        }
+    };
+    v.send();
+	var show = document.getElementById("data");
+		show.classList.remove('hidden');
+			var date = document.getElementById("release_date");
+		date.classList.remove('hidden');
 	}
 }
