@@ -81,7 +81,7 @@ function test() {
             console.log(tv.responseText);
 			console.log( info.results[0].title);
             document.getElementById("name").innerHTML = info.results[0].title;
-            var image="http://movieplayer.tv/wp-content/uploads"+info.results[0].poster_path
+            var image="https://image.tmdb.org/t/p/w500"+info.results[0].poster_path
 			console.log(image);
            document.getElementById("cover").setAttribute("src", image);
             document.getElementById("summary").innerHTML = info.results[0].overview;
@@ -97,7 +97,7 @@ function test() {
     tv.send();
 	var v = new XMLHttpRequest();
     v.open('GET', 'https://www.googleapis.com/customsearch/v1?q='+newstr+'&cx=007294272904903091646:aqljjsm_byk&num=10&key=AIzaSyBJS1V16sSnl7dw3J1UlB3A4oaAd_TDyjE');
-    var link;
+    var link = '';
     v.onload = function () {
         if (v.status === 200) {
             info = JSON.parse(v.responseText);
