@@ -35,7 +35,9 @@ p {
 .hidden {
     display: none;
 }
-
+.block{
+    display: block;
+}
 input[type="text"], input[type="number"] {
     width: calc(100% - 20px);
     padding: 10px 10px;
