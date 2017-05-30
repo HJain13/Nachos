@@ -13,20 +13,23 @@
 <body>
 
 	<div class="banner">
-		<div class="row center">
-			<div class="col-12 col-12-sm">
-				<h1 id="site-title">Nachos</h1>
+		<div class="container">
+			<div class="row center">
+				<div class="col-12 col-12-sm">
+					<h1 id="site-title">Nachos</h1>
+				</div>
 			</div>
-		</div>
-		<div class="row center">
-			<div class="col-2 hidden-sm"></div>
-			<div class="col-6 col-8-sm">
-				<input type="text" id="userInput"/>
-			</div>
-			<div class="col-2 col-4-sm left">
-				<button onclick="test()">Submit</button>
-			</div>
-			<div class="col-2 hidden-sm"></div>            
+			<div class="row center">
+				<div class="col-6 col-12-sm">
+					<input type="text" id="userInput" placeholder="Enter Search Query"/>
+				</div>
+				<div class="col-4 col-8-sm">
+					<button class="toggle" id="movie" onclick="select(1)">Movie</button><button class="toggle tg-right disabled" id="tv" onclick="select(2)">TV Show</button>	
+				</div>			
+				<div class="col-2 col-4-sm">
+					<button onclick="test()">Submit</button>
+				</div>
+			</div>			
 		</div>
 	</div>
 	<div class="container hidden" id="data">
@@ -35,7 +38,7 @@
 				<h2 id="name"></h2>
 			</div>
 		</div>
-		<div class="row center space">
+		<div class="row center">
 			<div class="col-3 col-6-sm">
 				<img src="" alt="" id="cover">
 			</div>
