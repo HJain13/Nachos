@@ -1,5 +1,4 @@
 var selection = 1, count = 0;
-var linkList = [];
 
 function select(a) {
 	if (a == 1) {
@@ -47,7 +46,7 @@ function test() {
 		// Download Link Getter
 		var v = new XMLHttpRequest();
 		v.open('GET', 'https://www.googleapis.com/customsearch/v1?q=' + newstr2 + '&cx=007294272904903091646:wpksgp8bkg8&num=10&key=AIzaSyBJS1V16sSnl7dw3J1UlB3A4oaAd_TDyjE');
-		var quality, format, link = '';
+		var quality, format, link = '', linkList = [];
 		count = 0;
 		v.onload = function () {
 			if (v.status === 200) {
@@ -86,11 +85,8 @@ function test() {
 		tv.onload = function () {
 			if (tv.status === 200) {
 				info = JSON.parse(tv.responseText);
-				console.log(tv.responseText);
-				console.log(info.results[0].title);
 				document.getElementById("name").innerHTML = info.results[0].title;
 				var image = "https://image.tmdb.org/t/p/w500" + info.results[0].poster_path
-				console.log(image);
 				document.getElementById("cover").setAttribute("src", image);
 				document.getElementById("summary").innerHTML = info.results[0].overview;
 				document.getElementById("rating").innerHTML = "<strong>Rating: </strong>" + info.results[0].vote_average + "" + "/10";
@@ -105,15 +101,21 @@ function test() {
 		tv.send();
 		var v = new XMLHttpRequest();
 		v.open('GET', 'https://www.googleapis.com/customsearch/v1?q=' + newstr + '&cx=007294272904903091646:aqljjsm_byk&num=10&key=AIzaSyBJS1V16sSnl7dw3J1UlB3A4oaAd_TDyjE');
-		var link = '';
+		var quality, format, link = '', linkList = [];
 		v.onload = function () {
 			if (v.status === 200) {
 				info = JSON.parse(v.responseText);
 				info.items.forEach(function (item) {
-					console.log(item.link);
-					link += '<a href="' + item.link + '">' + item.link + '</a></br>';
-					console.log(link);
-					//     '<a href="'+ ''+object.link+'">'+object.link+'</a><br>'
+					if (item.snippet.search(/1080p/i) != -1) quality = "1080p";
+					else if (item.snippet.search(/720p/i) != -1) quality = "720p";
+					else if (item.snippet.search(/480p/i) != -1) quality = "480p";
+					else quality = "undefined";
+					if (item.snippet.search(/x265/i) != -1) format = "x265";
+					else format = "undefined";
+					if (linkList.indexOf(item.displayLink+quality+format) == -1) {
+						link += '<a href="' + item.link + '">' + item.displayLink + '</a> -- '+quality+' -- '+format+'</br>';
+					}
+					linkList[count++] = item.displayLink+quality+format;
 				});
 				document.getElementById("id").innerHTML = link;
 			} else {
