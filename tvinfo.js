@@ -45,7 +45,7 @@ function test() {
 
 		// Download Link Getter
 		var v = new XMLHttpRequest();
-		v.open('GET', 'https://www.googleapis.com/customsearch/v1?q=' + newstr2 + '&cx=007294272904903091646:wpksgp8bkg8&num=10&key=AIzaSyBJS1V16sSnl7dw3J1UlB3A4oaAd_TDyjE');
+		v.open('GET', 'https://www.googleapis.com/customsearch/v1?q=' + newstr2 + '&cx=007294272904903091646:wpksgp8bkg8&num=10&key=AIzaSyDK_El7rqUPdrOETCiM08qMU_C2_8m5pPk');
 		var quality, format, link = '', linkList = [];
 		count = 0;
 		v.onload = function () {
@@ -100,7 +100,7 @@ function test() {
 		};
 		tv.send();
 		var v = new XMLHttpRequest();
-		v.open('GET', 'https://www.googleapis.com/customsearch/v1?q=' + newstr + '&cx=007294272904903091646:aqljjsm_byk&num=10&key=AIzaSyBJS1V16sSnl7dw3J1UlB3A4oaAd_TDyjE');
+		v.open('GET', 'https://www.googleapis.com/customsearch/v1?q=' + newstr + '&cx=007294272904903091646:aqljjsm_byk&num=10&key=AIzaSyDK_El7rqUPdrOETCiM08qMU_C2_8m5pPk');
 		var quality, format, link = '', linkList = [];
 		v.onload = function () {
 			if (v.status === 200) {
